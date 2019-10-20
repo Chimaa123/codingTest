@@ -8,8 +8,8 @@
            }
 
 switcherAravtEsreg={
-           13: '억',
-           9: '조',
+           13: '조',
+           9: '억',
            5:'만',
            4: '천',
            3: '백',
@@ -42,7 +42,7 @@ switcherNumEsreg={
 }
     
 def parse2IntList(numStr):
-    aravtList=['조','만','천','백','십']
+    aravtList=['조', '억','만','천','백','십']
     intList = []
     i=0
     
@@ -50,7 +50,6 @@ def parse2IntList(numStr):
         ucode = numStr[i].encode('utf-8')
         if ucode in aravtList:
             aravt = switcherAravt.get(ucode, False)
-            print(aravt)
             if aravt == False:
                return False
             last = 0
@@ -71,7 +70,6 @@ def parse2IntList(numStr):
                return False
             intList.append(integer)
         i+=1
-        print(intList)
     return intList
 
 def parse2Int(numList):
